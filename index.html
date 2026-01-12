@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AR Video</title>
+
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+    }
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+<model-viewer
+  src="empty.glb"
+  ar
+  ar-modes="scene-viewer webxr quick-look"
+  camera-controls
+  autoplay
+  exposure="1"
+  style="background:black;"
+>
+
+  <video
+    id="vid"
+    slot="poster"
+    src="video.mp4"
+    autoplay
+    loop
+    muted
+    playsinline
+    style="width:100%; height:100%; object-fit:cover;">
+  </video>
+
+</model-viewer>
+
+<script>
+  const vid = document.getElementById("vid");
+  document.body.addEventListener("click", () => {
+    vid.muted = false;
+  });
+</script>
+
+</body>
+</html>
